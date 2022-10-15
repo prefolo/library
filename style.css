@@ -150,7 +150,7 @@ input {
     border-radius: 10px;
 }
 
-#module-container div:first-child{
+#module-container form{
     display: grid;
     grid-template-columns: max-content 1fr;
     gap: 10px;
