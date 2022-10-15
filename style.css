@@ -29,6 +29,18 @@ button:active{
     background-color: #50b0ff;
 }
 
+input[type="checkbox"] {
+    width: min-content;
+    margin: 0;
+}
+
+input {
+    border: 1px solid #aaaa;
+    border-radius: 4px;
+    height: 24px;
+    padding: 0 6px;
+}
+
 /* toolbar */
 
 #toolbar{
@@ -71,9 +83,17 @@ button:active{
     color: #ac8e34;
 }
 
-.book-properties-grid input[type="checkbox"] {
-    width: min-content;
-    margin: 0;
+.book-properties-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.property{
+    color: rgb(154, 154, 154);
+    font-size: 12px;
 }
 
 .delete-btn {
@@ -111,18 +131,25 @@ button:active{
     border-radius: 10px;
 }
 
-.book-properties-grid{
+#module-container div:first-child{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
+    grid-template-columns: max-content 1fr;
+    gap: 10px;
     align-items: center;
-    justify-content: flex-start;
 }
 
-.property{
-    color: rgb(154, 154, 154);
-    font-size: 12px;
+#module-container div:last-child{
+    margin-top: 20px;
+    display: flex;
+    gap: 19px;
 }
+
+#module-container label {
+    color: #686868;
+    letter-spacing: 1px;
+    text-align: right;
+}
+
 /* footer */
 
 #footer{
