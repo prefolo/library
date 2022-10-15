@@ -13,6 +13,10 @@ function Book(title, author, pagesCount, isRead) {
 	};
 }
 
+Book.prototype.toggleReadProp = function(){
+    this.isRead = !this.isRead;
+}
+
 function addBookToLibrary(title, author, pagesCount, isRead) {
 	myLibrary.push(new Book(title, author, pagesCount, isRead));
 }
@@ -27,12 +31,13 @@ function displayLibrary() {
         
         cardCode += `<div class="card"><button data-index="${i}" class="delete-btn"><svg viewBox="0 0 24 24">
 		<path fill="currentColor" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
-	</svg></button><div class="title">${book.title}</div><div class="book-properties-grid"><div class="property">Author</div><div>${ book.author }</div><div class="property">Pages</div><div>${book.pagesCount}</div><div class="property">Read</div><input type="checkbox" ${ book.isRead ? 'checked' : '' }></div></div>`;
+	</svg></button><div class="title">${book.title}</div><div class="book-properties-grid"><div class="property">Author</div><div>${ book.author }</div><div class="property">Pages</div><div>${book.pagesCount}</div><div class="property">Read</div><input data-index="${i}" class="read-btn" type="checkbox" ${ book.isRead ? 'checked' : '' }></div></div>`;
     }
 
 	container.innerHTML = cardCode;
 
-    document.querySelectorAll(".delete-btn").forEach(btn => btn.addEventListener('click', deleteBook))
+    document.querySelectorAll(".delete-btn").forEach(btn => btn.addEventListener('click', deleteBook));
+    document.querySelectorAll(".read-btn").forEach(btn => btn.addEventListener('click', toggleReadProp));
 }
 
 function showFormForCreateNewBook() {
@@ -64,6 +69,11 @@ function saveBook() {
 function deleteBook() {
     myLibrary.splice(this.dataset.index, 1);
     displayLibrary();
+}
+
+function toggleReadProp() {
+    myLibrary[this.dataset.index].toggleReadProp();
+    console.log(myLibrary)
 }
 
 document.querySelector('#showFormForCreateNewBookBttn').addEventListener('click',showFormForCreateNewBook);
