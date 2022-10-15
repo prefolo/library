@@ -1,3 +1,22 @@
+:root{
+    --body-bg-color: #f5f5f5;
+    --button-bg-color: #8acaff;
+    --button-pressed-bg-color: #50b0ff;
+    --input-border-color:#aaa;
+    --toolbar-bg-color:#fff;
+    --card-border-color:#ddd;
+    --card-shadow-color:#ddd;
+    --card-bg-color:#fff;
+    --card-title-color: #ac8e34;
+    --card-property-color:rgb(154, 154, 154);
+    --card-delete-btn-color:#ddd;
+    --card-delete-hovered-btn-color:rgb(255, 108, 108);
+    --overlay-bg-color:rgba(0,0,0,0.5);
+    --module-bg-color:#fff;
+    --module-label-color:#686868;
+    --footer-color:rgb(168, 168, 168);
+}
+
 body{
     padding: 0;
     margin: 0;
@@ -8,7 +27,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #f5f5f5;
+    background-color: var(--body-bg-color);
 }
 
 body > div{
@@ -18,7 +37,7 @@ body > div{
 button {
     appearance: none;
     border: 0;
-    background-color: #8acaff;
+    background-color: var(--button-bg-color);
     padding: 6px 10px;
     border-radius: 100px;
     cursor: pointer;
@@ -26,7 +45,7 @@ button {
 }
 
 button:active{
-    background-color: #50b0ff;
+    background-color: var(--button-pressed-bg-color);
 }
 
 input[type="checkbox"] {
@@ -35,7 +54,7 @@ input[type="checkbox"] {
 }
 
 input {
-    border: 1px solid #aaaa;
+    border: 1px solid var(--input-border-color);
     border-radius: 4px;
     height: 24px;
     padding: 0 6px;
@@ -44,7 +63,7 @@ input {
 /* toolbar */
 
 #toolbar{
-    background-color: #fff;
+    background-color: var(--toolbar-bg-color)
 }
 
 #app-title{
@@ -68,11 +87,11 @@ input {
 .card{
     padding: 14px 20px;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: var(--card-bg-color);
     font-size: 15px;
     min-width: 120px;
-    border: 1px solid #ddd;
-    box-shadow: 0px 3px 7px #ddd;
+    border: 1px solid var(--card-border-color);
+    box-shadow: 0px 3px 7px var(--card-shadow-color);
     position: relative;
 }
 
@@ -80,7 +99,7 @@ input {
     text-align: center;
     margin-bottom: 10px;
     font-size: 18px;
-    color: #ac8e34;
+    color: var(--card-title-color);
 }
 
 .book-properties-grid{
@@ -92,7 +111,7 @@ input {
 }
 
 .property{
-    color: rgb(154, 154, 154);
+    color: var(--card-property-color);
     font-size: 12px;
 }
 
@@ -100,7 +119,7 @@ input {
     width: 17px;
     height: 17px;
     padding: 0;
-    color: #ddd;
+    color: var(--card-delete-btn-color);
     background-color: transparent;
     position: absolute;
     top: 3px;
@@ -108,7 +127,7 @@ input {
 }
 
 .delete-btn:hover {
-    color: rgb(255, 108, 108);
+    color: var(--card-delete-hovered-btn-color);
 }
 
 /* new book module */
@@ -121,12 +140,12 @@ input {
     top: 0;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0,0,0,0.5);
+    background-color: var(--overlay-bg-color);
     z-index: 10;
 }
 
 #module-container{
-    background-color: #fff;
+    background-color: var(--module-bg-color);
     padding: 20px;
     border-radius: 10px;
 }
@@ -145,7 +164,7 @@ input {
 }
 
 #module-container label {
-    color: #686868;
+    color: var(--module-label-color);
     letter-spacing: 1px;
     text-align: right;
 }
@@ -156,6 +175,6 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(168, 168, 168);
+    color: var(--footer-color);
     height: 60px;
 }
